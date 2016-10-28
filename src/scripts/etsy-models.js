@@ -11,6 +11,12 @@ const EtsyCollection = Backbone.Collection.extend({
 		return rawJSONResponse.results //might need to be different depending on the structure of the API
 	},
 	url: "" //this will also be added later with ETSY info
+
+  initialize: function(queryStringParameters){
+    let addedQueryString = '';
+    if(typeof queryStringParameters !== 'undefined' {addedQueryString = `&${queryStringParameters}`})
+    this.url = `http://whateverwhatever/blahblahblah/${}`
+  }
 })
 
 //need to export to the other files which reference them
