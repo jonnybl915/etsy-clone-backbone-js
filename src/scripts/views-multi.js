@@ -21,9 +21,9 @@ const MultipleListingView = Backbone.View.extend({
   _builderHTMLTemplate: function(collData){
     let htmlBuilderString = collData.models.map(function(model){
       //console.log("models: ", model);
-      console.log("main image url: ", model.get('MainImage'));
+      //console.log("main image url: ", model.get('MainImage'));
       var imageUrlGrabber = model.get('MainImage');
-      var imageUrl = imageUrlGrabber.url_75x75;
+      var imageUrl = imageUrlGrabber.url_170x135;
       return `<div class='listing-card'>
                   <h3>${model.get('title')}</h3>
                   <img src='${imageUrl}'>
