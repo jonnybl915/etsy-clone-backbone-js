@@ -2,7 +2,7 @@ const Backbone = require('backbone');
 
 //implementing destructuring to import the model and collections from etsy-models.js
 const {EtsyCollection, EtsyModel} = require('./etsy-models.js');
-
+const PlaceHolderEtsyView = require('./views-multi.js');
 
 const AppRouter = Backbone.Router.extend({
 	routes: {
