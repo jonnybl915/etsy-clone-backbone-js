@@ -14,9 +14,11 @@ const AppRouter = Backbone.Router.extend({
 		let etsyCollectionInstance = new EtsyCollection();
 		etsyCollectionInstance.fetch().then(function(){
 			console.log(etsyCollectionInstance);
-		})
-		//this will be where we instantiate the model and collection to get the data on the page.
 
+		//this will be where we instantiate the model and collection to get the data on the page.
+		let placeHolderEtsyViewInstance = new PlaceHolderEtsyView();
+		placeHolderEtsyViewInstance.render(etsyCollectionInstance);
+		})
 	},
 
 	initialize: function(){
