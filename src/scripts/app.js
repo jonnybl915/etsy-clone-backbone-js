@@ -1,20 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+const Backbone = require('Backbone');
 
-const app = function() {
+var AppRouter = Backbone.Router.extend({
+	routes: {
+		"": "showHomePage",
+	},
 
-	const Header = React.createClass({
-		render: () => {
-			return (
-				<div>
-					<h1>YOLO</h1>
-				   <a href="./about">Go To About Page</a>
-				</div>
-			)
-		}
-	})
+	showHomePage: function(){
+		document.querySelector('#app-container').innerHTML = `<h1>START HER UP<h1>`;
+	},
 
-	ReactDOM.render(<Header/>,document.querySelector('.container'))
-}
+	initialize: function(){
+		console.log('AllesGut');
+		Backbone.history.start();
+	}
+})
 
-app()
+var app = new AppRouter();
