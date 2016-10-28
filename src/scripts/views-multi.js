@@ -19,7 +19,8 @@ const MultipleListingView = Backbone.View.extend({
 //=========================
 
   _builderHTMLTemplate: function(collData){
-    let htmlBuilderString = collData.models.map(function(model){
+      let htmlBuilderString = `<h1>Can't Shop, Won't Shop</h1>`
+      htmlBuilderString += collData.models.map(function(model){
       //console.log("models: ", model);
       //console.log("main image url: ", model.get('MainImage'));
       var imageUrlGrabber = model.get('MainImage');
