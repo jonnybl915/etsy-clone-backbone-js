@@ -20,8 +20,17 @@ const MultipleListingView = Backbone.View.extend({
 
   _builderHTMLTemplate: function(collData){
     let htmlBuilderString = collData.models.map(function(model){
-      console.log("models: ", model);
-      return `<h2>${model.get('title')}</h2>`;
+      //console.log("models: ", model);
+      console.log("main image url: ", model.get('MainImage'));
+      var imageUrlGrabber = model.get('MainImage');
+      var imageUrl = imageUrlGrabber.url_75x75;
+      return `<div class='listing-card'>
+                  <h3>${model.get('title')}</h3>
+                  <img src='${imageUrl}'>
+                  <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>
+                  <p>Quantity: ${model.get('quantity')}</p>
+              </div>
+      `;
       //return some thing via ${model.get(**variablename)}
       //NEED TO GRAB THE UNIQUE ID HERE FOR ROUTING TO PARTICULAR OBJECTS
       // something like<div class="etsy-card" id="model.get(lalala_id)"></div>

@@ -2,13 +2,13 @@ const Backbone = require('backbone');
 
 //setting up a model
 const EtsyModel = Backbone.Model.extend({
-	url: "https://openapi.etsy.com/v2/listings/active?api_key=d0prraz2b63xy0odvjf6u0ir&callback=?", //we'll probably add this back in later with ETSY info
+	url: "https://openapi.etsy.com/v2/listings/active?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?", //we'll probably add this back in later with ETSY info
 })
 
 const EtsyCollection = Backbone.Collection.extend({
 	model: EtsyModel, //MUST REFERENCE THE MODEL
 
-	url: "https://openapi.etsy.com/v2/listings/active?api_key=d0prraz2b63xy0odvjf6u0ir&callback=?", //this will also be added later with ETSY info
+	url: "https://openapi.etsy.com/v2/listings/active?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?", //this will also be added later with ETSY info
 	// dataType: "jsonp",
 	//overwriting the datatype:
 	// sync : function(method, collection, options) {
@@ -32,7 +32,7 @@ const EtsyCollection = Backbone.Collection.extend({
   initialize: function(queryStringParameters){
     let addedQueryString = '';
     //if(typeof queryStringParameters !== 'undefined' {addedQueryString = `&${queryStringParameters}`})
-    this.url = `https://openapi.etsy.com/v2/listings/active.js?api_key=aavnvygu0h5r52qes74x9zvo&callback=?`;
+    this.url = `https://openapi.etsy.com/v2/listings/active.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`;
   }
 })
 
