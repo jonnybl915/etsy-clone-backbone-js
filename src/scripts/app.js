@@ -1,22 +1,20 @@
-const Backbone = require('Backbone');
+const Backbone = require('backbone');
 
-//setting up a model
-const EtsyModel = Backbone.Model.extend({
-	url: "" //we'll probably add this back in later with ETSY info
-})
+//implementing destructuring to import the model and collections from etsy-models.js
+const {EtsyCollection, EtsyModel} = require('./etsy-models.js');
 
-const EtsyCollection = Backbone.Collection.extend({
-	url: "" //this will also be added later with ETSY info
-})
 
-var AppRouter = Backbone.Router.extend({
+const AppRouter = Backbone.Router.extend({
 	routes: {
 		"": "showHomePage",
 	},
 
 	showHomePage: function(){
 		document.querySelector('#app-container').innerHTML = `<h4>START HER UP<h4>`;
-
+		let etsyCollectionInstance = new EtsyCollection();
+		etsyCollectionInstance.fetch().then(function(){
+			console.log(etsyCollectionInstance);
+		})
 		//this will be where we instantiate the model and collection to get the data on the page.
 
 	},
