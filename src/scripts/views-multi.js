@@ -5,13 +5,15 @@ const MultipleListingView = Backbone.View.extend({
 
   events: {
     //type of event and the corresponding route
-    "click .etsy-card" : 'routeToIndividual'
+    "click .listing-card" : 'routeToIndividual'
   },
 
   routeToIndividual: function(evt){
-    console.log(evt.currentTarget.id);
+    console.log("Current Target: ", evt.target.dataset.id);
+    console.log("Trying Again: ", evt.target.dataset.listing_id);
     //****** Changes The Hash Based On the Click ***********//
-    window.location.hash = evt.currentTarget.id;
+    window.location.hash = `details/${evt.target.dataset.listing_id}`;
+
   },
 
 //=========================

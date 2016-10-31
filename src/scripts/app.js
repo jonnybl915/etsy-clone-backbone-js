@@ -13,46 +13,40 @@ const AppRouter = Backbone.Router.extend({
 		"details/:id" : "showSingleItem",
 	},
 
-	showSingle: function(bioId){
-			let daterCollOfOneInstance = new DaterCollection(`bioguide_id=${bioId}`)
-			let singleDaterViewInstance = new SingleDaterView()
-
-			if (typeof this.datersColl === 'undefined'){
-				daterCollOfOneInstance.fetch().then(function(){
-					console.log(daterCollOfOneInstance)
-					// document.querySelector('#container').innerHTML = `<h1>Showing the profile for: ${daterCollOfOneInstance.models[0].get('first_name')}</h1>`
-					singleDaterViewInstance.render(daterCollOfOneInstance, 0)
-				})
-			} else {
-				   var selectedIndex = this.datersColl.findIndex(function(modl, i){
-					// console.log(modl)
-					return modl.get('bioguide_id') === bioId
-				})
-
-				console.log(selectedIndex)
-				singleDaterViewInstance.render(this.datersColl, selectedIndex)
-			}
-		},
-
-
-
 	showSingleItem: function(idOfSingleItem){
 		let etsyCollectionOfOneInstance = new EtsyCollection(`listing_id=${idOfSingleItem}`);
-		etsyCollectionOfOneInstance.fetch().then(function(){
-			console.log(etsyCollectionOfOneInstance);
+		let singleEtsyViewInstance = new SingleEtsyView();
 
-			let singleEtsyViewInstance = new SingleEtsyView();
-			singleEtsyViewInstance.render(etsyModelInstance);
-		})
-	},
+		etsyCollectionOfOneInstance.fetch().then(function(){
+		console.log("Collection Of 1 Instance", etsyCollectionOfOneInstance);
+
+			if (typeof this.etsyColl === 'undefined'){
+				etsyCollectionOfOneInstance.fetch().then(function(){
+					console.log(etsyCollectionOfOneInstance);
+					// document.querySelector('#container').innerHTML = `<h1>Showing the profile for: ${daterCollOfOneInstance.models[0].get('first_name')}</h1>`
+					singleEtsyViewInstance.render(etsyCollectionOfOneInstance, 0)
+				})
+			} else {
+				   var selectedIndex = this.etsyColl.findIndex(function(modl, i){
+					// console.log(modl)
+					return modl.get('listing_id') === idOfSingleItem;
+				})
+
+
+			singleEtsyViewInstance.render(this.etsyColl, selectedIndex);
+		}
+	}
+)},
 
 	showHomePage: function(){
+		let self = this;
 		document.querySelector('#app-container').innerHTML = `<h4>START HER UP<h4>`;
 		let etsyCollectionInstance = new EtsyCollection();
 		etsyCollectionInstance.fetch().then(function(){
 			console.log(etsyCollectionInstance);
 
 		//this will be where we instantiate the model and collection to get the data on the page.
+		self.etsyColl = etsyCollectionInstance;
 		let multipleListingViewInstance = new MultipleListingView();
 		multipleListingViewInstance.render(etsyCollectionInstance);
 		})

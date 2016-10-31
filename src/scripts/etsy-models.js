@@ -19,11 +19,11 @@ const EtsyCollection = Backbone.Collection.extend({
   initialize: function(queryStringParameters = "active"){
     var addedQueryString = '';
 
-		if (typeof queryStringParameters !== 'undefined') {
-			addedQueryString = `&${queryStringParameters}`
-		}
+		// if (typeof queryStringParameters !== 'undefined') {
+		// 	addedQueryString = `&${queryStringParameters}`
+		// }
 
-    this.url = `https://openapi.etsy.com/v2/listings/${addedQueryString}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`;
+    this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`;
   }
 })
 
