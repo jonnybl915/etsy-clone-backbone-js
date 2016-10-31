@@ -21,12 +21,13 @@ const MultipleListingView = Backbone.View.extend({
   _builderHTMLTemplate: function(collData){
       let htmlBuilderString = `<h1>Can't Shop, Won't Shop</h1>`
       htmlBuilderString += collData.models.map(function(model){
+      var title = model.get('title')
       //console.log("models: ", model);
       //console.log("main image url: ", model.get('MainImage'));
       var imageUrlGrabber = model.get('MainImage');
       var imageUrl = imageUrlGrabber.url_170x135;
       return `<div class='listing-card' id='${model.get('category_id')}'>
-                  <h3>${model.get('title')}</h3>
+                  <h3>${title.substring(0, 20)}</h3>
                   <img class='listing-image-small' src='${imageUrl}'>
                   <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>
                   <p>Quantity: ${model.get('quantity')}</p>
