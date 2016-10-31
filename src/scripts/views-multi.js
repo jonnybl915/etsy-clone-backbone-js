@@ -27,12 +27,12 @@ const MultipleListingView = Backbone.View.extend({
       var imageUrlGrabber = model.get('MainImage');
       var imageUrl = imageUrlGrabber.url_170x135;
       return `<div class='listing-card' id='${model.get('category_id')}'>
-                  <h3>${title.substring(0, 20)}</h3>
+                  <h3>${(title.length > 40 ? title.slice(0, 30) : title)}...</h3>
                   <img class='listing-image-small' src='${imageUrl}'>
                   <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>
                   <p>Quantity: ${model.get('quantity')}</p>
               </div>
-      `;
+              `;
       //return some thing via ${model.get(**variablename)}
       //NEED TO GRAB THE UNIQUE ID HERE FOR ROUTING TO PARTICULAR OBJECTS
       // something like<div class="etsy-card" id="model.get(lalala_id)"></div>

@@ -10,12 +10,19 @@ const AppRouter = Backbone.Router.extend({
 
 	routes: {
 		"home" : "showHomePage",
-		"details/:id" : "showSingleItem", 
+		"details/:id" : "showSingleItem",
 	},
 
 
-	showSingleItem: function(/*some kind of id*/){
+	showSingleItem: function(idOfSingleItem){
+		document.querySelector('#app-container').innerHTML = `<h4>START HER UP<h4>`;
+		let etsyModelInstance = new EtsyModel();
+		etsyModelInstance.fetch().then(function(){
+			console.log(etsyModelInstance);
 
+			let singleEtsyViewInstance = new SingleEtsyView();
+			singleEtsyViewInstance.render(etsyModelInstance);
+		})
 	},
 
 	showHomePage: function(){
