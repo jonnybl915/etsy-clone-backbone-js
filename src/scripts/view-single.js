@@ -18,7 +18,7 @@ const SingleEtsyView = Backbone.View.extend({
 
         return ` <div class="row etsy-card large-listing-card" id="${model.get('listing_id')}">
                     <h2>${model.get('title')}...</h2>
-                    <img class='listing-image' src='${imageUrl}'/>
+                    <img class='listing-image-large' src='${imageUrl}'/>
                     <ul class='single-view-item-specs'>
                       <li>${model.get('currency_code')}</li>
                       <li>${model.get('price')}</li>

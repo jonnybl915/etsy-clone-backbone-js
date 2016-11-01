@@ -22,8 +22,8 @@ const EtsyCollection = Backbone.Collection.extend({
 		if (typeof queryStringParameters !== 'undefined') {
 			addedQueryString = `&${queryStringParameters}`
 		}
-		this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`
-    //this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`;
+		//this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`
+    this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`;
   }
 })
 

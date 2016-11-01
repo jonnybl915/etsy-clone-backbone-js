@@ -21,7 +21,6 @@
 }
 
 .large-listing-card {
-
 	border-radius: 0 89px 0 89px;
 	-moz-border-radius: 0 89px 0 89px;
 	-webkit-border-radius: 0 89px 0 89px;
@@ -42,19 +41,28 @@ h3 {
 	-moz-box-shadow: 10px 10px 37px -12px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 37px -12px rgba(0,0,0,0.75);
 }
+.listing-image-small {
 
-.listing-image {
+}
+.listing-image-large {
+
 	align-self: center;
+	padding: 87px;
+	margin: -6%;
 }
 
 .single-view-item-specs {
-	display: right;
+
+	li{
+		padding-bottom: 10px;
+	}
+
+	display: inline-block;
+	position: absolute;
 }
 
 img {
-	align-self: center;
-	padding: 87px;
-  margin: -6%;
+
 }
 body {
 	background-color: #ABB7B7;
