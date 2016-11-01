@@ -14,15 +14,15 @@ const AppRouter = Backbone.Router.extend({
 	},
 
 	showSingleItem: function(idOfSingleItem){
-		let etsyCollectionOfOneInstance = new EtsyCollection(`id=${idOfSingleItem}`);
+		let etsyCollectionOfOneInstance = new EtsyCollection(`${idOfSingleItem}`);
 		let singleEtsyViewInstance = new SingleEtsyView();
 
 		etsyCollectionOfOneInstance.fetch().then(function(){
-		console.log("Collection Of 1 Instance", etsyCollectionOfOneInstance);
+		//console.log("Collection Of 1 Instance", etsyCollectionOfOneInstance);
 
 			if (typeof this.etsyColl === 'undefined'){
 				etsyCollectionOfOneInstance.fetch().then(function(){
-					console.log(etsyCollectionOfOneInstance);
+					//console.log(etsyCollectionOfOneInstance);
 					// document.querySelector('#container').innerHTML = `<h1>Showing the profile for: ${daterCollOfOneInstance.models[0].get('first_name')}</h1>`
 					singleEtsyViewInstance.render(etsyCollectionOfOneInstance, 0)
 				})
@@ -35,6 +35,8 @@ const AppRouter = Backbone.Router.extend({
 
 			singleEtsyViewInstance.render(this.etsyColl, selectedIndex);
 		}
+		console.log("ETSY COLL: ", this.etsyColl);
+		singleEtsyViewInstance.render(this.etsyColl);
 	}
 )},
 
@@ -43,7 +45,7 @@ const AppRouter = Backbone.Router.extend({
 		document.querySelector('#app-container').innerHTML = `<h4>START HER UP<h4>`;
 		let etsyCollectionInstance = new EtsyCollection();
 		etsyCollectionInstance.fetch().then(function(){
-			console.log(etsyCollectionInstance);
+			//console.log(etsyCollectionInstance);
 
 		//this will be where we instantiate the model and collection to get the data on the page.
 		self.etsyColl = etsyCollectionInstance;

@@ -8,7 +8,7 @@ const EtsyModel = Backbone.Model.extend({
 const EtsyCollection = Backbone.Collection.extend({
 	model: EtsyModel, //MUST REFERENCE THE MODEL
 
-	url: "https://openapi.etsy.com/v2/listings/active?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?", //this will also be added later with ETSY info
+	url: "", //this will also be added later with ETSY info
 
 	parse: function(rawJSONResponse) {
 		return rawJSONResponse.results; //might need to be different depending on the structure of the API
@@ -19,11 +19,11 @@ const EtsyCollection = Backbone.Collection.extend({
   initialize: function(queryStringParameters = "active"){
     var addedQueryString = '';
 
-		// if (typeof queryStringParameters !== 'undefined') {
-		// 	addedQueryString = `&${queryStringParameters}`
-		// }
-
-    this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`;
+		if (typeof queryStringParameters !== 'undefined') {
+			addedQueryString = `&${queryStringParameters}`
+		}
+		this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`
+    //this.url = `https://openapi.etsy.com/v2/listings/${queryStringParameters}.js?api_key=d0prraz2b63xy0odvjf6u0ir&includes=MainImage&callback=?`;
   }
 })
 

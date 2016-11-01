@@ -12,8 +12,8 @@ const SingleEtsyView = Backbone.View.extend({
     let htmlBuilderString = collData.models.map(function(model){
       return ` <div class="etsy-card" id="${model.get('listing_id')}">
 
-                  <h3>${model.get('title')}</h3>
-
+                  <h3>${model.get('title').splice(0, 40)...}</h3>
+                  
 
               </div>
               `;
