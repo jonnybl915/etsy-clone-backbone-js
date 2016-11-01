@@ -9,14 +9,27 @@ const SingleEtsyView = Backbone.View.extend({
 //=========================
 
   _builderHTMLTemplate: function(collData){
+
     let htmlBuilderString = collData.models.map(function(model){
-      return ` <div class="etsy-card" id="${model.get('listing_id')}">
+    var imageUrlGrabber = model.get('MainImage');
+    console.log("Model: ", model);
+    console.log(imageUrlGrabber);
+     var imageUrl = imageUrlGrabber.url_570xN;
 
-                  <h3>${model.get('title').splice(0, 40)...}</h3>
-                  
+        return ` <div class="row etsy-card large-listing-card" id="${model.get('listing_id')}">
+                    <h2>${model.get('title')}...</h2>
+                    <img class='listing-image' src='${imageUrl}'/>
+                    <ul class='single-view-item-specs'>
+                      <li>${model.get('currency_code')}</li>
+                      <li>${model.get('price')}</li>
+                      <li>${model.get('price')}</li>
+                      <li>${model.get('price')}</li>
+                      <li>${model.get('price')}</li>
+                    </ul>
 
-              </div>
-              `;
+
+                 </div>
+             `;
 
       //return some thing via ${model.get(**variablename)}
       //NEED TO GRAB THE UNIQUE ID HERE FOR ROUTING TO PARTICULAR OBJECTS

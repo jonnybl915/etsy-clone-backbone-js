@@ -31,9 +31,9 @@ const MultipleListingView = Backbone.View.extend({
       var imageUrlGrabber = model.get('MainImage');
       var imageUrl = imageUrlGrabber.url_170x135;
 
-      return `<div class='listing-card' data-id='${model.get('listing_id')}'>
+      return `<div class='listing-card l-4 m-2 s-1' data-id='${model.get('listing_id')}'>
                   <h3>${(title.length > 40 ? title.slice(0, 30) : title)}...</h3>
-                    <img class='listing-image-small' src='${imageUrl}'>
+                    <img class='listing-image' src='${imageUrl}'>
                       <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>
                         <p>Quantity: ${model.get('quantity')}</p>
               </div>
