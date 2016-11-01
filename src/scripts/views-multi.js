@@ -10,9 +10,9 @@ const MultipleListingView = Backbone.View.extend({
 
   routeToIndividual: function(evt){
     console.log("Current Target: ", evt.target.dataset.id);
-    console.log("Trying Again: ", evt.target.dataset.listing_id);
+    console.log("Trying Again: ", evt.target.dataset.idOfSingleItem);
     //****** Changes The Hash Based On the Click ***********//
-    window.location.hash = `details/${evt.target.dataset.listing_id}`;
+    window.location.hash = `#details/${evt.target.dataset.idOfSingleItem}`;
 
   },
 
@@ -28,13 +28,15 @@ const MultipleListingView = Backbone.View.extend({
       //console.log("main image url: ", model.get('MainImage'));
       var imageUrlGrabber = model.get('MainImage');
       var imageUrl = imageUrlGrabber.url_170x135;
+
       return `<div class='listing-card' id='${model.get('category_id')}'>
                   <h3>${(title.length > 40 ? title.slice(0, 30) : title)}...</h3>
-                  <img class='listing-image-small' src='${imageUrl}'>
-                  <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>
-                  <p>Quantity: ${model.get('quantity')}</p>
+                    <img class='listing-image-small' src='${imageUrl}'>
+                      <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>
+                        <p>Quantity: ${model.get('quantity')}</p>
               </div>
               `;
+
       //return some thing via ${model.get(**variablename)}
       //NEED TO GRAB THE UNIQUE ID HERE FOR ROUTING TO PARTICULAR OBJECTS
       // something like<div class="etsy-card" id="model.get(lalala_id)"></div>
