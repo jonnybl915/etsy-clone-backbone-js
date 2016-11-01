@@ -9,10 +9,12 @@ const MultipleListingView = Backbone.View.extend({
   },
 
   routeToIndividual: function(evt){
-    console.log("Current Target: ", evt.target.dataset.id);
-    console.log("Trying Again: ", evt.target.dataset.idOfSingleItem);
+    console.log("Current Target: ", evt);
+    // console.log("Current HOPE: ", evt.target.dataset.listing_id);
+    //
+    // console.log("Trying Again: ", evt.target.dataset.idOfSingleItem);
     //****** Changes The Hash Based On the Click ***********//
-    window.location.hash = `#details/${evt.target.dataset.idOfSingleItem}`;
+    window.location.hash = `#details/${evt.currentTarget.dataset.id}`;
 
   },
 
@@ -29,7 +31,7 @@ const MultipleListingView = Backbone.View.extend({
       var imageUrlGrabber = model.get('MainImage');
       var imageUrl = imageUrlGrabber.url_170x135;
 
-      return `<div class='listing-card' id='${model.get('category_id')}'>
+      return `<div class='listing-card' data-id='${model.get('listing_id')}'>
                   <h3>${(title.length > 40 ? title.slice(0, 30) : title)}...</h3>
                     <img class='listing-image-small' src='${imageUrl}'>
                       <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>

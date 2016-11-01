@@ -14,7 +14,7 @@ const AppRouter = Backbone.Router.extend({
 	},
 
 	showSingleItem: function(idOfSingleItem){
-		let etsyCollectionOfOneInstance = new EtsyCollection(`listing_id=${idOfSingleItem}`);
+		let etsyCollectionOfOneInstance = new EtsyCollection(`id=${idOfSingleItem}`);
 		let singleEtsyViewInstance = new SingleEtsyView();
 
 		etsyCollectionOfOneInstance.fetch().then(function(){
