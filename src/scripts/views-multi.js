@@ -62,7 +62,7 @@ const MultipleListingView = Backbone.View.extend({
             //console.log("IMAGE GRABBER: ", imageUrlGrabber);
             var imageUrl = imageUrlGrabber.url_fullxfull;
 
-              return `    <div class="col s6 m4 l3 " data-id="${model.get('listing_id')}">
+              return `    <div class="col s12 m6 l3 " data-id="${model.get('listing_id')}">
                             <div class="card small listing-card">
                               <div class="card-image small">
                                 <img src="${imageUrl}">
