@@ -24,7 +24,9 @@ const MultipleListingView = Backbone.View.extend({
 
     _builderHTMLTemplate: function(collData) {
         let htmlBuilderString = `<h1>Can't Shop, Won't Shop</h1>`
-        htmlBuilderString += `<div class="card-container">`
+        htmlBuilderString += `<div class="card-container">
+                              <div class="row">
+                              `
         htmlBuilderString += collData.models.map(function(model) {
             var title = model.get('title')
                 console.log("models: ", model);
@@ -33,8 +35,7 @@ const MultipleListingView = Backbone.View.extend({
             //console.log("IMAGE GRABBER: ", imageUrlGrabber);
             var imageUrl = imageUrlGrabber.url_fullxfull;
 
-              return `  <div class="row">
-                          <div class="col s4">
+              return `    <div class="col s1 m4">
                             <div class="card medium">
                               <div class="card-image small">
                                 <img src="${imageUrl}">
@@ -49,7 +50,7 @@ const MultipleListingView = Backbone.View.extend({
                               </div>
                             </div>
                           </div>
-                        </div>
+
                       `;
 
 
@@ -70,7 +71,7 @@ const MultipleListingView = Backbone.View.extend({
             //here I can link up and change the hash to hit my different routes
             //without an anchor tag. we can do this employing Backbone events
         }).join('')
-        return htmlBuilderString += `</div>`; 
+        return htmlBuilderString += `</div> </div>`; 
     },
 
     render: function(collectionData) {
