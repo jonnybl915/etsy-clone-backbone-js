@@ -26,25 +26,25 @@ const MultipleListingView = Backbone.View.extend({
         let htmlBuilderString = `<h1>Can't Shop, Won't Shop</h1>`
         htmlBuilderString += collData.models.map(function(model) {
             var title = model.get('title')
-                //console.log("models: ", model);
+                console.log("models: ", model);
                 //console.log("main image url: ", model.get('MainImage'));
             var imageUrlGrabber = model.get('MainImage');
             //console.log("IMAGE GRABBER: ", imageUrlGrabber);
-            var imageUrl = imageUrlGrabber.url_170x135;
+            var imageUrl = imageUrlGrabber.url_75x75;
 
               return `  <div class="row">
                           <div class="col s12 m7">
-                            <div class="card">
-                              <div class="card-image">
+                            <div class="card medium">
+                              <div class="card-image small">
                                 <img src="${imageUrl}">
-                                <span class="card-title">Card Title</span>
+                                <span class="card-title">${(title.length > 40 ? title.slice(0, 30) : title)}...</span>
                               </div>
                               <div class="card-content">
-                                 <p>$ ${model.get('price')} :: ${model.get('currency_code')}</p>
+                                 <p>${model.get('price')} :: ${model.get('currency_code')}</p>
                                  <p>Quantity: ${model.get('quantity')}</p>
                               </div>
                               <div class="card-action">
-                                <a href="#">This is a link</a>
+                                <a href="#">Individual View</a>
                               </div>
                             </div>
                           </div>
