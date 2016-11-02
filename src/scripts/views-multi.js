@@ -23,17 +23,21 @@ const MultipleListingView = Backbone.View.extend({
     //=========================
 
     _builderHTMLTemplate: function(collData) {
-        let htmlBuilderString = ` <nav class="nav extended">
+        let htmlBuilderString = ` <nav class="nav nav-extended">
                                     <div class="nav-wrapper">
                                       <a href="#" class="brand-logo"><h4>Can't Shop, Won't Shop</h4></a>
-                                      <ul id="nav-mobile" class="right hide-on-med-and-down">
-                                        <li><a href="sass.html">Sass</a></li>
-                                        <li><a href="badges.html">Components</a></li>
-                                        <li><a href="collapsible.html">JavaScript</a></li>
+                                      
+                                      <ul class="right hide-on-med-and-down">
+                                        <li><a href="sass.html"><i class="material-icons">search</i></a></li>
+                                        <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+                                        <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+                                        <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
                                       </ul>
-                                       <ul class="tabs tabs-transparent">
+
+                                       <ul class="tabs">
+
                                          <li class="tab"><a href="#test1">Clothing</a></li>
-                                         <li class="tab"><a class="active" href="#test2">Jewlery</a></li>
+                                         <li class="tab"><a href="#test2">Jewlery</a></li>
                                          <li class="tab"><a href="#test3">Arts and Crafts</a></li>
                                          <li class="tab"><a href="#test4">Entertainment</a></li>
                                          <li class="tab"><a href="#test4">Home & Living</a></li>

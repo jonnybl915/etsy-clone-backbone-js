@@ -36,6 +36,7 @@ box-shadow: 3px 4px 9px -1px rgba(0,0,0,0.54);
 	size: 100px;
 }
 
+
 h2 {
 	font-weight: lighter;
 	padding-left: 10px;
@@ -43,7 +44,9 @@ h2 {
 h3 {
 	font-weight: lighter;
 }
-
+.hide-on-med-and-down {
+	visibility: hidden;
+}
 
 .brand-logo h4 {
 		color: #F56400;
@@ -51,6 +54,12 @@ h3 {
 }
 .row {
 	width: auto;
+}
+ul li a:hover {
+		color: #F56400;
+}
+.tabs .tab a {
+	color: #ABB7B7;
 }
 .card-container {
 	display:  block;
