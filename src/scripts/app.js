@@ -1,5 +1,5 @@
 const Backbone = require('backbone');
-
+const $ = require('jquery');
 //implementing destructuring to import the model and collections from etsy-models.js
 const {EtsyCollection, EtsyModel} = require('./etsy-models.js');
 

@@ -1,5 +1,5 @@
 const Backbone = require('backbone');
-
+const $ = require('jquery');
 const MultipleListingView = Backbone.View.extend({
     el: '#app-container',
 
@@ -26,27 +26,32 @@ const MultipleListingView = Backbone.View.extend({
         let htmlBuilderString = ` <nav class="nav nav-extended">
                                     <div class="nav-wrapper">
                                       <a href="#" class="brand-logo"><h4>Can't Shop, Won't Shop</h4></a>
-                                      
-                                      <ul class="right hide-on-med-and-down">
+
+                                      <ul class="right">
                                         <li><a href="sass.html"><i class="material-icons">search</i></a></li>
                                         <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
                                         <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
                                         <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
                                       </ul>
 
-                                       <ul class="tabs">
-
-                                         <li class="tab"><a href="#test1">Clothing</a></li>
-                                         <li class="tab"><a href="#test2">Jewlery</a></li>
-                                         <li class="tab"><a href="#test3">Arts and Crafts</a></li>
-                                         <li class="tab"><a href="#test4">Entertainment</a></li>
-                                         <li class="tab"><a href="#test4">Home & Living</a></li>
-                                         <li class="tab"><a href="#test4">Kids & Baby</a></li>
-                                         <li class="tab"><a href="#test4">Vintage</a></li>
-                                       </ul>
+                                      <ul class="tabs">
+                                        <li class="tab text-wrap"><a href="#test1">Clothing</a></li>
+                                        <li class="tab text-wrap"><a href="#test2">Jewlery</a></li>
+                                        <li class="tab text-wrap"><a href="#test3">Arts and Crafts</a></li>
+                                        <li class="tab text-wrap"><a href="#test4">Entertainment</a></li>
+                                        <li class="tab text-wrap"><a href="#test4">Home & Living</a></li>
+                                        <li class="tab text-wrap"><a href="#test4">Kids & Baby</a></li>
+                                        <li class="tab text-wrap"><a href="#test4">Vintage</a></li>
+                                      </ul>
                                     </div>
                                   </nav>
-
+                                  <div class="carousel">
+                                    <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/250/250/nature/1"></a>
+                                    <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/250/250/nature/2"></a>
+                                    <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/250/250/nature/3"></a>
+                                    <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/250/250/nature/4"></a>
+                                    <a class="carousel-item" href="#five!"><img src="http://lorempixel.com/250/250/nature/5"></a>
+                                  </div>
                                   <div class="row">
                                 `
         htmlBuilderString += collData.models.map(function(model) {
@@ -65,7 +70,7 @@ const MultipleListingView = Backbone.View.extend({
                               </div>
                               <div class="card-content">
                               <hr></hr>
-                                 <p>${model.get('price')} :: ${model.get('currency_code')}</p>
+                                 <p>${model.get('currency_code')} : ${model.get('price')}</p>
                                  <p>Quantity: ${model.get('quantity')}</p>
                               </div>
                             </div>
@@ -96,3 +101,13 @@ const MultipleListingView = Backbone.View.extend({
 })
 
 module.exports = MultipleListingView;
+
+(document).ready(function(){
+     $('.carousel').carousel({
+           dist:0,
+           shift:0,
+           padding:20,
+
+     });
+
+   });
