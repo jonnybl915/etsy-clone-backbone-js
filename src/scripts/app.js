@@ -9,7 +9,7 @@ const SingleEtsyView = require('./view-single.js');
 const AppRouter = Backbone.Router.extend({
 
 	routes: {
-		"home" : "showHomePage",
+		"" : "showHomePage",
 		"details/:id" : "showSingleItem",
 	},
 
