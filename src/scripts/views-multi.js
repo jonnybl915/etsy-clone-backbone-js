@@ -24,16 +24,17 @@ const MultipleListingView = Backbone.View.extend({
 
     _builderHTMLTemplate: function(collData) {
         let htmlBuilderString = `<h1>Can't Shop, Won't Shop</h1>`
+        htmlBuilderString += `<div class="card-container">`
         htmlBuilderString += collData.models.map(function(model) {
             var title = model.get('title')
                 console.log("models: ", model);
                 //console.log("main image url: ", model.get('MainImage'));
             var imageUrlGrabber = model.get('MainImage');
             //console.log("IMAGE GRABBER: ", imageUrlGrabber);
-            var imageUrl = imageUrlGrabber.url_75x75;
+            var imageUrl = imageUrlGrabber.url_fullxfull;
 
               return `  <div class="row">
-                          <div class="col s12 m7">
+                          <div class="col s4">
                             <div class="card medium">
                               <div class="card-image small">
                                 <img src="${imageUrl}">
@@ -52,6 +53,8 @@ const MultipleListingView = Backbone.View.extend({
                       `;
 
 
+
+
             //Initial Card idea. Now im trying with materialize above
             // return `<div class='listing-card l-4 m-2 s-1' data-id='${model.get('listing_id')}'>
             //             <h3>${(title.length > 40 ? title.slice(0, 30) : title)}...</h3>
@@ -67,7 +70,7 @@ const MultipleListingView = Backbone.View.extend({
             //here I can link up and change the hash to hit my different routes
             //without an anchor tag. we can do this employing Backbone events
         }).join('')
-        return htmlBuilderString; 
+        return htmlBuilderString += `</div>`; 
     },
 
     render: function(collectionData) {

@@ -44,13 +44,24 @@ h3 {
 .listing-image-small {
 
 }
+.col .s4 {
+	display: block;
+}
+.row {
+	width: auto;
+}
+.card-container {
+	display: block;
+}
 .listing-image-large {
 
 	align-self: center;
 	padding: 87px;
 	margin: -6%;
 }
-
+img {
+	width: 10%;
+}
 .single-view-item-specs {
 
 	li{
