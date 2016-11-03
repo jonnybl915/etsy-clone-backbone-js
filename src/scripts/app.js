@@ -1,5 +1,7 @@
 const Backbone = require('backbone');
 const $ = require('jquery');
+
+const Materialize = require('materialize-css/js/materialize.js')
 //implementing destructuring to import the model and collections from etsy-models.js
 const {EtsyCollection, EtsyModel} = require('./etsy-models.js');
 
@@ -56,8 +58,9 @@ const AppRouter = Backbone.Router.extend({
 
 	initialize: function(){
 		console.log('AllesGut');
+
 		Backbone.history.start();
 	}
 })
 
-var app = new AppRouter();
+	var app = new AppRouter();
